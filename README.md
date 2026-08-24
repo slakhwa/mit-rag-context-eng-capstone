@@ -17,8 +17,10 @@ Each module's capstone checkpoint gets its own top-level folder, named
 
 ```
 Capstone Checkpoint 1.1/
+    capstone_checkpoint_1_1_baseline_starter.py
+    Required_Capstone_Checkpoint_1_1_Worksheet_completed.docx
+    checkpoint_1_1_responses.log
     lab_1_1_chatbot_solution.py
-    WORKSHEET.md
     README.md
 Capstone Checkpoint 2.1/
     README.md   (placeholder until this module is completed)
@@ -28,13 +30,22 @@ Capstone Checkpoint 8.1/
 ```
 
 As each new module is completed, its checkpoint folder is filled in with the
-solution file and worksheet, following this same pattern.
+solution file and worksheet, following this same pattern. Note: the large
+course-provided datasets (research papers / Wikipedia corpus) are kept local
+only and are **not** committed to this repo — see `.gitignore`.
+
+## Capstone scenario
+
+**Research Paper Navigator** — selected in Checkpoint 1.1 and used for every
+checkpoint going forward. The system answers questions over ~150 CS research
+papers (program synthesis / PL / neuro-symbolic AI), quoting sources directly
+and handling both single-paper and cross-paper questions.
 
 ## Checkpoint status
 
 | Checkpoint | Topic | Status |
 |---|---|---|
-| [1.1](./Capstone%20Checkpoint%201.1) | Chatbot with/without conversation memory | 🟡 Code complete; worksheet not yet filled in |
+| [1.1](./Capstone%20Checkpoint%201.1) | Evaluating when retrieval is required (no-retrieval baseline) | ✅ Complete |
 | [2.1](./Capstone%20Checkpoint%202.1) | TBD | ⬜ Not started |
 | [3.1](./Capstone%20Checkpoint%203.1) | TBD | ⬜ Not started |
 | [4.1](./Capstone%20Checkpoint%204.1) | TBD | ⬜ Not started |

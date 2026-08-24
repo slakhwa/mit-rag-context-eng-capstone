@@ -1,23 +1,50 @@
-# Capstone Checkpoint 1.1 — Chatbot With/Without Memory
+# Capstone Checkpoint 1.1 — Evaluating When Retrieval Is Required
 
-**Status:** Solution code complete. Worksheet added but not yet filled in.
+**Status:** ✅ Complete — worksheet filled in, baseline probes run, evidence logged.
+
+**Capstone scenario (kept for the whole program): Research Paper Navigator** —
+~150 computer-science research papers (program synthesis / PL / neuro-symbolic AI,
+2005–2025), sourced from `Labs/CapstoneDatasets/ResearchPapers/` on the course
+platform. Not included in this repo (large binary corpus, course-provided —
+see `.gitignore`).
 
 ## Contents
-- `lab_1_1_chatbot_solution.py` — completed Lab 1.1 chatbot. Implements:
-  - `build_no_history_respond()` — stateless chatbot (no memory across turns).
-  - `build_history_respond()` — chatbot that carries full message history to the LLM.
-  - A `USE_HISTORY` flag toggles between the two, and a CLI chat loop for manual testing.
-- `Required_Capstone_Checkpoint_1_1_Worksheet.docx` — official checkpoint worksheet,
-  "Evaluating When Retrieval Is Required." This is the blank assignment template as
-  issued; the response sections (scenario selection, prompt/output evidence, limitation
-  analysis, retrieval justification, reflection) still need to be filled in and
-  resubmitted through the course platform.
+
+- **`Required_Capstone_Checkpoint_1_1_Worksheet_completed.docx`** — the graded
+  deliverable: the official worksheet, filled in with the scenario selection,
+  two prompt/output examples, limitation analysis, pattern analysis, retrieval
+  justification, retrieval requirements, and reflection — all grounded in the
+  evidence from `checkpoint_1_1_responses.log`.
+- **`capstone_checkpoint_1_1_baseline_starter.py`** — the checkpoint's baseline
+  script (course-provided), completed with `my_probe_prompts()`: four original
+  prompts targeting specific, verifiable facts in real papers from the corpus
+  (a paper title, a verbatim abstract sentence, a cross-paper comparison, and a
+  very recent/obscure paper), in addition to the three example prompts.
+  Deliberately uses **no retrieval** — the point of this checkpoint is to
+  establish the no-retrieval baseline.
+- **`checkpoint_1_1_responses.log`** — the raw prompt/response evidence from
+  running the baseline script. Several outputs were manually checked against
+  the source PDFs and found to be hallucinated (invented a paper title,
+  fabricated a verbatim quote, invented precise statistics) — see the
+  worksheet's "Analysis of Model Limitations" section for details.
+- **`lab_1_1_chatbot_solution.py`** — the related, earlier **Lab 1.1** exercise
+  (not itself a graded checkpoint, but the same underlying pattern): a chatbot
+  with and without conversation memory. Implements `build_no_history_respond()`
+  and `build_history_respond()`, toggled by `USE_HISTORY`.
 
 ## How to run
+
 ```bash
 python -m venv .venv
 source .venv/bin/activate   # Windows: .venv\Scripts\activate
 pip install python-dotenv langchain-openai langchain-core
 echo "OPENROUTER_API_KEY=sk-or-your-key-here" > .env
-python "lab_1_1_chatbot_solution.py"
+
+# Lab 1.1 (chatbot with/without memory)
+python lab_1_1_chatbot_solution.py
+
+# Checkpoint 1.1 (no-retrieval baseline probes; requires the ResearchPapers
+# corpus from the course platform to be downloaded locally to check answers
+# against ground truth)
+python capstone_checkpoint_1_1_baseline_starter.py
 ```
