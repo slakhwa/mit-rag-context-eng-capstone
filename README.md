@@ -34,7 +34,7 @@ solution file and worksheet, following this same pattern.
 
 | Checkpoint | Topic | Status |
 |---|---|---|
-| [1.1](./Capstone%20Checkpoint%201.1) | Chatbot with/without conversation memory | ✅ Complete |
+| [1.1](./Capstone%20Checkpoint%201.1) | Chatbot with/without conversation memory | 🟡 Code complete; worksheet not yet filled in |
 | [2.1](./Capstone%20Checkpoint%202.1) | TBD | ⬜ Not started |
 | [3.1](./Capstone%20Checkpoint%203.1) | TBD | ⬜ Not started |
 | [4.1](./Capstone%20Checkpoint%204.1) | TBD | ⬜ Not started |
