@@ -1,0 +1,96 @@
+[2026-09-07T22:58:53] QUERY 1: What is the counterfeit conundrum in code language models?
+retrieved=['DBLP_conf_acl_GuLJOLSS24#chunk0 (score=37.31)', 'DBLP_journals_corr_abs-2402-19475#chunk0 (score=32.90)', 'DBLP_journals_corr_abs-2402-19475#chunk8 (score=31.31)']
+snippets:
+  - DBLP_conf_acl_GuLJOLSS24#chunk0: The Counterfeit Conundrum: Can Code Language Models Grasp the Nuances of Their Incorrect Generations? Alex Gu1 Wen-Ding Li⋆2 Naman Jain⋆3 Theo X. Olausson⋆1 Celine Lee⋆2 Koushik Sen3 Armando Solar-Lez...
+  - DBLP_journals_corr_abs-2402-19475#chunk0: The Counterfeit Conundrum: Can Code Language Models Grasp the Nuances of Their Incorrect Generations? gua@mit.edu arXiv:2402.19475v1 [cs.SE] 29 Feb 2024 Alex Gu MIT CSAIL Wen-Ding Li⋆ wl678@cornell.ed...
+  - DBLP_journals_corr_abs-2402-19475#chunk8: statement and example input-output pairs so the model focuses on executing the code. For repair, we use the counterfeit samples in each set and discard the correct samples. More details and examples c...
+answer=The “counterfeit conundrum” refers to the problem that code language models can generate **“counterfeit samples”**: programs that are **good enough to be sampled at a moderate temperature** and **pass weak but nontrivial correctness checks**, yet are still **incorrect**.
+
+The papers describe the conundrum as asking whether models can **“grasp the nuances of their incorrect generations”** and report that models often have only a **“shallow understanding of these counterfeit samples”** or **“very shallow understanding of counterfeits.”** They also note that models may:
+
+- **mistakenly classify them as correct**,  
+- **reason about their execution as if they were correct**, and  
+- **struggle to repair them**, sometimes doing worse than generating a correct program from scratch.
+
+So, in short, the counterfeit conundrum is about whether code LMs can recognize and reason about subtly wrong code that looks plausibly correct.
+------------------------------------------------------------------------
+[2026-09-07T22:58:55] QUERY 2: How does the paper measure whether library learning compression improves on DreamCoder?
+retrieved=['DBLP_journals_pacmpl_BowersOWGTES23#chunk71 (score=35.78)', 'DBLP_journals_pacmpl_BowersOWGTES23#chunk56 (score=35.19)', 'DBLP_journals_corr_abs-2006-08381#chunk30 (score=32.89)']
+snippets:
+  - DBLP_journals_pacmpl_BowersOWGTES23#chunk71: Ellis et al. 2021, DreamCoder is shown to recover higher-order functions such as map, fold, unfold, filter, Proc. ACM Program. Lang., Vol. 7, No. POPL, Article 41. Publication date: January 2023. Top-...
+  - DBLP_journals_pacmpl_BowersOWGTES23#chunk56: Proc. ACM Program. Lang., Vol. 7, No. POPL, Article 41. Publication date: January 2023. Top-Down Synthesis for Library Learning 41:19 Rewritten corpus size ratio (DreamCoder / Stitch) 1.20 1.15 1.10 1...
+  - DBLP_journals_corr_abs-2006-08381#chunk30: S7 shows 150 random dreams at each stage. 12 Synthesis, which trains a RobustFill (16) model on samples from the initial library; and Enumeration, which performs type-directed enumeration (23) for 24 ...
+answer=The paper measures library-learning compression by comparing the **compression metric** used for DreamCoder and Stitch, specifically the **“best-of-task” metric** in Eq. (18):
+
+> “the compression metric in Eq. (18)”  
+> “It is trivial to implement this best-of-task metric in Stitch, so we use this for the comparisons with DreamCoder.”
+
+The metric is described as:
+
+> “∑ cost(A) + min cost(Rewrite(p, A))” over tasks/programs
+
+They then compare the resulting compression rates, shown as:
+
+> “Rewritten corpus size ratio (DreamCoder / Stitch)”
+
+and note:
+
+> “Higher is better for Stitch: a ratio above 1.0 indicates that Stitch achieves greater compression than DreamCoder.”
+
+So, in short, they judge whether compression improves on DreamCoder by **comparing the rewritten corpus size ratio under the Eq. (18) compression metric**.
+------------------------------------------------------------------------
+[2026-09-07T22:58:56] QUERY 3: neural model of RNA splicing
+retrieved=['Gupta2024#chunk0 (score=31.87)', 'Gupta2024#chunk44 (score=30.40)', 'Gupta2024#chunk1 (score=28.66)']
+snippets:
+  - Gupta2024#chunk0: (2024) 25:23 Gupta et al. Genome Biology https://doi.org/10.1186/s13059-023-03162-x METHOD Genome Biology Open Access Improved modeling of RNA‑binding protein motifs in an interpretable neural model o...
+  - Gupta2024#chunk44: dataset (Additional file 1: Figure S7)). As expected, the splice sites surrounding evolutionarily novel exons proved far more challenging to predict for all models (Fig. 8c). On this challenging task,...
+  - Gupta2024#chunk1: predictions but also improves pre‑ diction of RBP-binding sites in vivo and of splicing activity, assessed using independent data. Keywords: Alternative splicing, Genome interpretation, Machine learni...
+answer=The document describes a “neural model of RNA splicing” as a **modular splicing architecture**:
+
+- It “**leverages in vitro-derived RNA affinity models for 79 human RBPs and the annotated human genome**”
+- It uses separate **“Motif”** and **“Aggregator”** components that “**can be mixed and matched**,” with **sparsity** enforced “**to improve interpretability**”
+- The paper says training the **“Adjusted Motif (AM) architecture”** on the splicing task “**yields better splicing predictions**” and also improves prediction of “**RBP-binding sites in vivo and of splicing activity**”
+
+It also mentions another model family used in the methods section:  
+“**We structure our LSSI models as simple feedforward neural networks that first map their input to 100 hidden neurons, then have 5 hidden 100-wide layers with ReLU activations**...”
+
+If you want, I can also summarize what the paper says about how this model works in simpler terms.
+------------------------------------------------------------------------
+[2026-09-07T22:58:58] QUERY 4: agent programming search over program execution paths
+retrieved=['conf_nips_li2025encompass#chunk3 (score=27.57)', 'conf_nips_li2025encompass#chunk4 (score=23.41)', 'conf_nips_li2025encompass#chunk0 (score=22.45)']
+snippets:
+  - conf_nips_li2025encompass#chunk3: that cleanly separates the representation of the core workflow logic from the inference-time scaling strategy. The programmer could then make minimal modifications to their agent to flexibly experimen...
+  - conf_nips_li2025encompass#chunk4: score (Figure 1d). We call this programming model probabilistic angelic nondeterminism (PAN). As a form of angelic nondeterminism [23], PAN lets the programmer write their program pretending the unrel...
+  - conf_nips_li2025encompass#chunk0: E N C OMPASS: Enhancing Agent Programming with Search Over Program Execution Paths Zhening Li∗ Asari AI, MIT CSAIL zhening.li@asari.ai Armando Solar-Lezama Asari AI, MIT CSAIL asolar@csail.mit.edu Yis...
+answer=The documents say that E N C OMPASS frames agent programming as **“search over different execution paths of a nondeterministic program”** and that it **“compiles the program into a search space object ... so that search can be conducted over this tree of execution paths to find the path with the highest score.”**
+
+It also says this is called **probabilistic angelic nondeterminism (PAN)**, which **“separat[es] inference-time algorithms (search policy) from the underlying logic of the agent.”**
+
+If you want, I can also summarize how branchpoints and the search space work in this framework.
+------------------------------------------------------------------------
+[2026-09-07T22:59:00] QUERY 5: comparing different approaches to library learning across papers
+retrieved=['DBLP_journals_pacmpl_BowersOWGTES23#chunk4 (score=21.42)', 'DBLP_journals_corr_abs-2409-17490#chunk25 (score=20.11)', 'DBLP_journals_pacmpl_BowersOWGTES23#chunk75 (score=19.70)']
+snippets:
+  - DBLP_journals_pacmpl_BowersOWGTES23#chunk4: across the corpus of programs. (C) Stitch automatically rewrites the initial corpus using the learned library functions. legible programs to render the existing schematics. More importantly, well-writ...
+  - DBLP_journals_corr_abs-2409-17490#chunk25: C-Scores in Section 3 to compensate for this drawback, as we simply take the mean of the percentage difference in the metric function value on solved problems across the entire dataset. This approach ...
+  - DBLP_journals_pacmpl_BowersOWGTES23#chunk75: 2018; Iyer et al. 2019; Jones et al. 2021; Shin et al. 2019; Wong et al. 2021]. Several of these prior approaches also introduce a utility metric based on program compression in order to determine the...
+answer=The documents describe several approaches to library learning and how they compare:
+
+- **Common tree fragments / subtree memoization**: one popular approach is “to search for common tree fragments across a corpus of programs,” which can be added as abstractions. Related systems “work through direct memoization of subtrees across a corpus of programs” and “antiunification” to cache templates that match syntax trees.
+
+- **Bottom-up abstraction learning**: “Much of this prior work follows a bottom-up approach to abstraction learning,” where systems traverse training programs bottom-up and then extract shared abstractions from the corpus.
+
+- **Refactoring with rewrite rules**: some systems use “more sophisticated refactoring using one or more rewrite rules to expose additional shared structure across training programs.” The paper notes these are “deductive approaches” that apply local rewrite rules in a bottom-up fashion.
+
+- **Variable-binding-aware abstraction learning**: Ellis et al. 2021 “introduces an algorithm that reasons about variable bindings to abstract out well-formed functions instead of just tree fragments.” This is presented as more expressive, but “takes a deductive approach to library learning that is difficult to scale to larger datasets of longer and deeper input programs.”
+
+- **Dynamic bottom-up plus version spaces**: prior work like Ellis et al. 2020, 2021 “approaches this challenge by combining a dynamic bottom-up approach to refactoring with version spaces to more efficiently search” over candidate refactorings.
+
+Overall, the documents contrast:
+- simpler fragment-based methods,
+- bottom-up memoization/antiunification,
+- rewrite-rule-based refactoring,
+- and more advanced variable-binding-aware abstraction learning.
+
+They also emphasize a key tradeoff: these deductive approaches “confront fundamental memory and search-time scaling challenges” because they may require “representing and evaluating an exponentially large space of proposed refactorings.”
+------------------------------------------------------------------------

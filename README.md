@@ -23,7 +23,10 @@ Capstone Checkpoint 1.1/
     lab_1_1_chatbot_solution.py
     README.md
 Capstone Checkpoint 2.1/
-    README.md   (placeholder until this module is completed)
+    capstone_checkpoint_2_1_baseline_retrieval_starter.py
+    Required_Capstone_Checkpoint_2_1_Worksheet_completed.docx
+    checkpoint_2_1_retrieval.log
+    README.md
 ...
 Capstone Checkpoint 8.1/
     README.md   (placeholder until this module is completed)
@@ -46,7 +49,7 @@ and handling both single-paper and cross-paper questions.
 | Checkpoint | Topic | Status |
 |---|---|---|
 | [1.1](./Capstone%20Checkpoint%201.1) | Evaluating when retrieval is required (no-retrieval baseline) | ✅ Complete |
-| [2.1](./Capstone%20Checkpoint%202.1) | TBD | ⬜ Not started |
+| [2.1](./Capstone%20Checkpoint%202.1) | Retrieval strategy design and baseline (BM25 keyword retrieval) | ✅ Complete |
 | [3.1](./Capstone%20Checkpoint%203.1) | TBD | ⬜ Not started |
 | [4.1](./Capstone%20Checkpoint%204.1) | TBD | ⬜ Not started |
 | [5.1](./Capstone%20Checkpoint%205.1) | TBD | ⬜ Not started |
