@@ -27,6 +27,11 @@ Capstone Checkpoint 2.1/
     Required_Capstone_Checkpoint_2_1_Worksheet_completed.docx
     checkpoint_2_1_retrieval.log
     README.md
+Capstone Checkpoint 3.1/
+    capstone_checkpoint_3_1_evaluation_starter.py
+    Required_Capstone_Checkpoint_3_1_Worksheet_completed.docx
+    checkpoint_3_1_evaluation.log
+    README.md
 ...
 Capstone Checkpoint 8.1/
     README.md   (placeholder until this module is completed)
@@ -50,7 +55,7 @@ and handling both single-paper and cross-paper questions.
 |---|---|---|
 | [1.1](./Capstone%20Checkpoint%201.1) | Evaluating when retrieval is required (no-retrieval baseline) | ✅ Complete |
 | [2.1](./Capstone%20Checkpoint%202.1) | Retrieval strategy design and baseline (BM25 keyword retrieval) | ✅ Complete |
-| [3.1](./Capstone%20Checkpoint%203.1) | TBD | ⬜ Not started |
+| [3.1](./Capstone%20Checkpoint%203.1) | Evaluation infrastructure and baseline diagnosis (LLM-judge) | ✅ Complete |
 | [4.1](./Capstone%20Checkpoint%204.1) | TBD | ⬜ Not started |
 | [5.1](./Capstone%20Checkpoint%205.1) | TBD | ⬜ Not started |
 | [6.1](./Capstone%20Checkpoint%206.1) | TBD | ⬜ Not started |
