@@ -40,20 +40,24 @@ kept out of git like there.
 
 - **Baseline pass rate: 3/5 (60%).**
 - **Two real, distinct failure modes**, not judge error (confirmed by the
-  framework validation below):
-  1. **Query-phrasing sensitivity** — a differently-worded but
-     semantically-equivalent question about the *same* paper Checkpoint 2.1
-     already retrieved successfully pulled *different* chunks this time,
-     which happened not to contain a specific term (\"Aggregator\") the
-     grading notes required. The right document was found; the right chunk
-     of it wasn't.
+  framework validation below) — one on each side of the pipeline:
+  1. **Generation failure despite correct retrieval** — retrieval correctly
+     returned the RNA-splicing paper's abstract chunk, which verbatim
+     contains the required sentence ("separate Motif and Aggregator
+     components ... enforcing sparsity to improve interpretability"). I
+     confirmed this by hand (checking the exact word position against chunk
+     boundaries): the fact was in the model's context the whole time. The
+     model's answer simply drew from the *other* two retrieved chunks
+     instead and never surfaced it — a synthesis/selective-attention issue,
+     not a retrieval gap.
   2. **Primary vs. secondary source ranking** — asked to name both Ellis et
      al.'s "EC2" (2018) and Bowers et al.'s "Stitch," retrieval never
-     surfaced Ellis et al.'s own paper at all; it only found Bowers et al.'s
-     paper, which cites Ellis's *later* system by a different name
+     surfaced Ellis et al.'s own paper at all (I confirmed its best-scoring
+     chunk ranks 122nd overall for this query); it only found Bowers et
+     al.'s paper, which cites Ellis's *later* system by a different name
      ("DreamCoder"). BM25's pure keyword density has no notion that a
      paper's own primary source should outrank a secondary paper that merely
-     discusses it extensively.
+     discusses it extensively. This one **is** a genuine retrieval gap.
 - **Framework validation passed**: the judge correctly PASSed a real,
   grounded answer and FAILed a deliberately fabricated one on the same
   question — but this only tested an *obvious* fabrication. A noted blind
@@ -67,7 +71,7 @@ python -m venv .venv
 source .venv/bin/activate   # Windows: .venv\Scripts\activate
 pip install python-dotenv langchain-openai langchain-core rank_bm25
 echo "OPENROUTER_API_KEY=sk-or-your-key-here" > .env
-# paper_text/ is included in this folder; see Checkpoint 2.1's README to
-# regenerate it from scratch if needed.
+# paper_text/ is NOT included in this folder (kept out of git — see above);
+# regenerate it locally following Checkpoint 2.1's README before running.
 python capstone_checkpoint_3_1_evaluation_starter.py
 ```
