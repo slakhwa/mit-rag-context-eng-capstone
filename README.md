@@ -42,6 +42,9 @@ solution file and worksheet, following this same pattern. Note: the large
 course-provided datasets (research papers / Wikipedia corpus) are kept local
 only and are **not** committed to this repo — see `.gitignore`.
 
+Weekly (non-capstone) lab exercises live separately under `Labs/Module1`
+through `Labs/Module9`, one folder per module.
+
 ## Capstone scenario
 
 **Research Paper Navigator** — selected in Checkpoint 1.1 and used for every
