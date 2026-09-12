@@ -27,10 +27,9 @@ see `.gitignore`).
   the source PDFs and found to be hallucinated (invented a paper title,
   fabricated a verbatim quote, invented precise statistics) — see the
   worksheet's "Analysis of Model Limitations" section for details.
-- **`lab_1_1_chatbot_solution.py`** — the related, earlier **Lab 1.1** exercise
-  (not itself a graded checkpoint, but the same underlying pattern): a chatbot
-  with and without conversation memory. Implements `build_no_history_respond()`
-  and `build_history_respond()`, toggled by `USE_HISTORY`.
+The related, earlier **Lab 1.1** exercise (chatbot with/without conversation
+memory — not itself a graded checkpoint) now lives under
+[`Labs/Module1/lab_1_1_chatbot_solution.py`](../Labs/Module1).
 
 ## How to run
 
@@ -39,9 +38,6 @@ python -m venv .venv
 source .venv/bin/activate   # Windows: .venv\Scripts\activate
 pip install python-dotenv langchain-openai langchain-core
 echo "OPENROUTER_API_KEY=sk-or-your-key-here" > .env
-
-# Lab 1.1 (chatbot with/without memory)
-python lab_1_1_chatbot_solution.py
 
 # Checkpoint 1.1 (no-retrieval baseline probes; requires the ResearchPapers
 # corpus from the course platform to be downloaded locally to check answers

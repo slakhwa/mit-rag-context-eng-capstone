@@ -20,7 +20,6 @@ Capstone Checkpoint 1.1/
     capstone_checkpoint_1_1_baseline_starter.py
     Required_Capstone_Checkpoint_1_1_Worksheet_completed.docx
     checkpoint_1_1_responses.log
-    lab_1_1_chatbot_solution.py
     README.md
 Capstone Checkpoint 2.1/
     capstone_checkpoint_2_1_baseline_retrieval_starter.py
@@ -43,7 +42,15 @@ course-provided datasets (research papers / Wikipedia corpus) are kept local
 only and are **not** committed to this repo — see `.gitignore`.
 
 Weekly (non-capstone) lab exercises live separately under `Labs/Module1`
-through `Labs/Module9`, one folder per module.
+through `Labs/Module9`, one folder per module, e.g.:
+
+```
+Labs/Module1/
+    lab_1_1_chatbot_solution.py
+    lab_1_2_keyword_retrieval_starter.py
+    detailedEmails/   (course-provided dataset, not committed — see .gitignore)
+    README.md
+```
 
 ## Capstone scenario
 
