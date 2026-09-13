@@ -163,7 +163,8 @@ def tokenize(text: str) -> list[str]:
 
     Delete the raise NotImplementedError line once your code works.
     """
-    raise NotImplementedError("Implement tokenize() — see the TODO above.")
+    tokens = re.findall(r"[a-z0-9]+", text.lower())
+    return [t for t in tokens if t not in _STOPWORDS]
 
 
 class Bm25Retriever(BaseRetriever):
@@ -190,7 +191,10 @@ class Bm25Retriever(BaseRetriever):
 
         Delete the raise NotImplementedError line once your code works.
         """
-        raise NotImplementedError("Implement getTopK() — see the TODO above.")
+        tokens = tokenize(query)
+        scores = self._bm25.get_scores(tokens)
+        ranked = sorted(range(len(scores)), key=lambda i: scores[i], reverse=True)[:k]
+        return [(self._paths[i], self._contents[i], scores[i]) for i in ranked]
 
     def retrievedContext(self, query: str) -> str:
         """Join the top self._top_k results into one context string, each labeled
@@ -198,7 +202,8 @@ class Bm25Retriever(BaseRetriever):
 
         TODO (Step 3). Delete the raise NotImplementedError line once it works.
         """
-        raise NotImplementedError("Implement retrievedContext() — see the TODO above.")
+        hits = self.getTopK(query, self._top_k)
+        return "\n---\n".join(f"[{filename}]\n{content}" for filename, content, _score in hits)
 
 
 if __name__ == "__main__":
