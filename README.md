@@ -46,6 +46,11 @@ Capstone Checkpoint 6.1/
     Required_Capstone_Checkpoint_6_1_Worksheet_completed.docx
     checkpoint_6_1_agent.log
     README.md
+Capstone Checkpoint 7.1/
+    capstone_checkpoint_7_1_production_ready_starter.py
+    Required_Capstone_Checkpoint_7_1_Worksheet_completed.docx
+    checkpoint_7_1_agent.log
+    README.md
 ...
 Capstone Checkpoint 8.1/
     README.md   (placeholder until this module is completed)
@@ -84,7 +89,7 @@ and handling both single-paper and cross-paper questions.
 | [4.1](./Capstone%20Checkpoint%204.1) | Advanced retrieval: citation/author graph over BM25 | ✅ Complete |
 | [5.1](./Capstone%20Checkpoint%205.1) | Agent-based RAG: retrieve-decide-answer loop vs. fixed pipeline | ✅ Complete |
 | [6.1](./Capstone%20Checkpoint%206.1) | Security and performance audit: injection probes, token cost, model ladder | ✅ Complete |
-| [7.1](./Capstone%20Checkpoint%207.1) | TBD | ⬜ Not started |
+| [7.1](./Capstone%20Checkpoint%207.1) | Production hardening: sanitizer, caching, routing (mixed results) | ✅ Complete |
 | [8.1](./Capstone%20Checkpoint%208.1) | TBD | ⬜ Not started |
 
 ## Setup (per checkpoint)
