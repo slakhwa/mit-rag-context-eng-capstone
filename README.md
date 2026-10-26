@@ -122,17 +122,6 @@ solution file and worksheet, following this same pattern. Note: the large
 course-provided datasets (research papers / Wikipedia corpus) are kept local
 only and are **not** committed to this repo — see `.gitignore`.
 
-Weekly (non-capstone) lab exercises live separately under `Labs/Module1`
-through `Labs/Module9`, one folder per module, e.g.:
-
-```
-Labs/Module1/
-    lab_1_1_chatbot_solution.py
-    lab_1_2_keyword_retrieval_starter.py
-    detailedEmails/   (course-provided dataset, not committed — see .gitignore)
-    README.md
-```
-
 ## Capstone scenario
 
 **Research Paper Navigator** — selected in Checkpoint 1.1 and used for every

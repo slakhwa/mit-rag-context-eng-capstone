@@ -27,10 +27,6 @@ see `.gitignore`).
   the source PDFs and found to be hallucinated (invented a paper title,
   fabricated a verbatim quote, invented precise statistics) — see the
   worksheet's "Analysis of Model Limitations" section for details.
-The related, earlier **Lab 1.1** exercise (chatbot with/without conversation
-memory — not itself a graded checkpoint) now lives under
-[`Labs/Module1/lab_1_1_chatbot_solution.py`](../Labs/Module1).
-
 ## How to run
 
 ```bash
