@@ -1,0 +1,581 @@
+[2026-10-25T21:52:12] TASK 1 (initial agent, MAX_STEPS=3)
+Q: Compare how Ellis et al.'s EC2 (NeurIPS 2018) and Bowers et al.'s Stitch approach library learning, naming both algorithms.
+
+FIXED (1 calls): The documents only clearly describe **Stitch** and **DreamCoder**; they do **not** provide enough information about **Ellis et al.’s EC2 (NeurIPS 2018)** to make a direct comparison with it.
+
+What the documents do say is that **DreamCoder** learns libraries iteratively: it “**alternates between synthesizing programs ... and updating the library of abstractions available to the synthesizer**” ([chunk54]). They also say **Stitch** is a deductive refactoring/library-learning approach that “**learns libraries whose quality is comparable to and often better than those found by DreamCoder**” ([chunk59]) and that it is “**dramatically more efficient**” than DreamCoder ([chunk59]).
+
+So, based on the provided documents:
+- **Bowers et al.’s Stitch**: a deductive refactoring / library-learning system that learns abstractions efficiently from corpora of programs.
+- **Ellis et al.’s EC2**: not described in the provided text, so I can’t name its algorithmic details from these documents alone.
+
+If you want, I can still summarize the Stitch vs. DreamCoder comparison that *is* supported by the documents.
+
+AGENT (3 calls, docs=['DBLP_journals_pacmpl_BowersOWGTES23#chunk0', 'DBLP_journals_pacmpl_BowersOWGTES23#chunk37', 'DBLP_journals_pacmpl_BowersOWGTES23#chunk54', 'DBLP_journals_pacmpl_BowersOWGTES23#chunk59', 'DBLP_journals_pacmpl_BowersOWGTES23#chunk74', 'DBLP_journals_pacmpl_BowersOWGTES23#chunk75']): Ellis et al.’s EC2 and Bowers et al.’s Stitch both do library learning, but they approach it differently:
+
+- **EC2** is described in the documents as a **bottom-up** approach to abstraction learning. The paper says prior work like Ellis et al. 2018 uses “**antiunification**” and other bottom-up methods, and more generally “**Much of this prior work follows a bottom-up approach to abstraction learning**” by traversing training programs and then extracting shared abstractions.  
+- **Stitch** uses **corpus-guided top-down synthesis**. The paper says it “**introduces corpus-guided top-down synthesis**” and “**builds abstractions directly from initial DSL primitives**,” using “**syntactic pattern matching of intermediate abstractions to intelligently prune the search space**.” It also says Stitch’s core algorithm is **CTS** (“corpus-guided top-down search”).
+
+So, in short:
+
+- **EC2**: a **bottom-up library learning / antiunification-based** algorithm.
+- **Stitch (CTS)**: a **top-down, corpus-guided synthesis** algorithm that searches for abstractions starting from primitives and prunes the search space with pattern matching.
+
+AGENT TRACE: [
+  {
+    "step": 1,
+    "queries_run": [
+      "Compare how Ellis et al.'s EC2 (NeurIPS 2018) and Bowers et al.'s Stitch approach library learning, naming both algorithms."
+    ],
+    "collected": [
+      "DBLP_journals_pacmpl_BowersOWGTES23#chunk54",
+      "DBLP_journals_pacmpl_BowersOWGTES23#chunk59",
+      "DBLP_journals_pacmpl_BowersOWGTES23#chunk74"
+    ],
+    "done": false,
+    "new_queries": [
+      "Ellis et al. EC2 NeurIPS 2018 library learning algorithm name compression utility metric",
+      "Bowers Stitch library learning compares to Ellis et al. EC2 names of algorithms"
+    ],
+    "reasoning": "We have enough to infer Stitch\u2019s role in library learning and that it is compared against DreamCoder from Ellis et al. 2021, but the question specifically asks to compare Ellis et al.\u2019s EC2 (NeurIPS 2018) and Bowers et al.\u2019s Stitch, naming both algorithms. We still need the exact algorithm name used by Ellis et al. EC2 and likely the explicit name of Stitch\u2019s library-learning algorithm or wrapper to answer cleanly and accurately."
+  },
+  {
+    "step": 2,
+    "queries_run": [
+      "Ellis et al. EC2 NeurIPS 2018 library learning algorithm name compression utility metric",
+      "Bowers Stitch library learning compares to Ellis et al. EC2 names of algorithms"
+    ],
+    "collected": [
+      "DBLP_journals_pacmpl_BowersOWGTES23#chunk0",
+      "DBLP_journals_pacmpl_BowersOWGTES23#chunk37",
+      "DBLP_journals_pacmpl_BowersOWGTES23#chunk54",
+      "DBLP_journals_pacmpl_BowersOWGTES23#chunk59",
+      "DBLP_journals_pacmpl_BowersOWGTES23#chunk74",
+      "DBLP_journals_pacmpl_BowersOWGTES23#chunk75"
+    ],
+    "done": true,
+    "new_queries": [],
+    "reasoning": "We have enough to answer: EC2 from Ellis et al. (DreamCoder) is a bottom-up, deductive/refactoring-based library learning method that uses a compression-based utility metric to keep abstractions. Stitch (Bowers et al.) uses corpus-guided top-down synthesis, specifically CTS, to learn libraries by building abstractions directly from primitives and pruning via syntactic pattern matching; it is presented as a top-down alternative to DreamCoder/EC2."
+  }
+]
+------------------------------------------------------------------------
+[2026-10-25T21:52:20] TASK 2 (initial agent, MAX_STEPS=3)
+Q: What problem does the ENCOMPASS paper's 'probabilistic angelic nondeterminism (PAN)' address, and how does that compare to DreamCoder's approach to library learning?
+
+FIXED (1 calls): ENCOMPASS’s PAN addresses the problem of **searching over the execution paths of probabilistic programs** to find one that best satisfies a user-specified objective. The paper says PAN “**lets the programmer write their program pretending the unreliable operations always produce good outputs, and the runtime searches the space of possible execution paths for one where the operations indeed produced good outputs**.” It is meant to separate the **search policy** from the program’s underlying logic.
+
+Compared with that, DreamCoder’s library learning is about finding abstractions in a program space by optimizing a **probabilistic Bayesian objective**: it seeks the library \(L\) that maximizes \(P(L)\prod_{p \in P} P(p \mid L)\). The document notes that DreamCoder “**implements a probabilistic Bayesian objective for judging candidate abstractions**,” and that its approach uses version spaces and expensive \(\beta\)-inversion rewrites.
+
+So, in short:
+- **PAN / ENCOMPASS:** runtime search over nondeterministic execution paths for a good outcome.
+- **DreamCoder:** probabilistic library learning over candidate abstractions, optimized via a Bayesian objective.
+
+AGENT (2 calls, docs=['DBLP_journals_pacmpl_BowersOWGTES23#chunk71', 'conf_nips_li2025encompass#chunk4', 'conf_nips_li2025encompass#chunk5']): The ENCOMPASS paper’s **probabilistic angelic nondeterminism (PAN)** addresses the problem of **searching over the possible execution paths of a probabilistic program**—especially when some operations like LLM calls are unreliable or random—in order to find a path that **optimizes a user-specified objective**. The paper says PAN “lets the programmer write their program pretending the unreliable operations always produce good outputs, and the runtime searches the space of possible execution paths for one where the operations indeed produced good outputs.”
+
+Compared with that, **DreamCoder’s library learning** is about finding abstractions that best compress a set of programs. The document says DreamCoder “implements a probabilistic Bayesian objective for judging candidate abstractions,” seeking the library \(L\) that maximizes \(P(L)\prod_{p \in P} P(p \mid L)\). So DreamCoder is optimizing a **library selection/compression objective**, whereas PAN is a **runtime search model over nondeterministic execution paths** to satisfy an objective during inference.
+
+AGENT TRACE: [
+  {
+    "step": 1,
+    "queries_run": [
+      "What problem does the ENCOMPASS paper's 'probabilistic angelic nondeterminism (PAN)' address, and how does that compare to DreamCoder's approach to library learning?"
+    ],
+    "collected": [
+      "DBLP_journals_pacmpl_BowersOWGTES23#chunk71",
+      "conf_nips_li2025encompass#chunk4",
+      "conf_nips_li2025encompass#chunk5"
+    ],
+    "done": true,
+    "new_queries": [],
+    "reasoning": "We have enough from the retrieved text. ENCOMPASS\u2019s PAN addresses the problem of controlling/searching over stochastic or unreliable program operations (e.g., LLM calls) by treating execution as a search over possible paths and choosing one that best satisfies a user objective. Compared with DreamCoder, which learns libraries/abstractions by probabilistic Bayesian library learning and compression-based objective over program datasets, PAN is about inference-time search over execution paths rather than learning reusable program primitives/libraries."
+  }
+]
+------------------------------------------------------------------------
+[2026-10-25T21:52:44] TASK 3 (initial agent, MAX_STEPS=3)
+Q: What interpretability techniques does Gupta et al.'s 2024 Genome Biology paper use for RNA splicing, and does the 2025 ICLR paper by the same author (Gupta) build on this approach?
+
+FIXED (1 calls): From the provided Gupta et al. 2024 Genome Biology paper, the interpretability approach is a **modular architecture** that separates modeling into **“Motif” and “Aggregator” components** and enforces **sparsity**:
+
+- The abstract says they “**describe a modular splicing architecture that leverages in vitro-derived RNA affinity models for 79 human RBPs and the annotated human genome**.”
+- It further says: “**Binding and activity are modeled by separate Motif and Aggregator components that can be mixed and matched, enforcing sparsity to improve interpretability.**”
+- It also mentions training an **“Adjusted Motif (AM) architecture”**.
+
+So, the interpretability techniques in the paper are:
+1. **Separate motif and aggregator modules**
+2. **Mix-and-match modularity**
+3. **Sparsity constraints** to make the model more interpretable
+4. **Adjusted Motif (AM) architecture**
+
+As for the **2025 ICLR paper by the same author (Gupta)**: the provided documents do **not** include that paper, so I **can’t confirm from these documents whether it builds on this approach**.
+
+AGENT (3 calls, docs=['Gupta2024#chunk0', 'Gupta2024#chunk1', 'Gupta2024#chunk17', 'Gupta2024#chunk2', 'Gupta2024#chunk6', 'Gupta2024#chunk7', 'conf_iclr_gupta2025sparling#chunk37']): Gupta et al. (2024) explicitly emphasize interpretability by using a **modular architecture** with biologically anchored intermediate components:
+
+- A **Local Splice Site Identifier (LSSI)** that models the **5′ splice site and polypyrimidine tract/3′ splice site**.
+- A **Fixed Motif (FM) model** that uses **existing biophysically based models derived from in vitro RBP:RNA binding data** for 79 human RBPs.
+- An **Aggregator** that combines the outputs to predict splicing outcomes.
+
+The paper says this setup is meant to ensure “**we predict splicing from a known intermediate value, rather than from uninterpretable latent features learned directly from the RNA sequence**.” It also describes an **Adjusted Motif (AM)** model that “**tunes these motifs as part of end-to-end training on the splicing task**” while preserving the link to the original motifs and RBPs.
+
+So the interpretability techniques are mainly:
+1. **Modularity**
+2. **Biologically grounded intermediate representations**
+3. **Use of fixed, interpretable motif models**
+4. **Sparse/enforced sparsity design**
+5. **Adjusted motifs that remain associated with specific RBPs**
+
+For the 2025 ICLR paper by the same author, the document says it discusses Gupta et al. (2024) and states: “**In this work, we eschew the complexity of the Adjusted Motif model and instead consider the sparse layer by itself.**” So yes, it **builds on the same general sparse/adjusted-motif idea**, but according to the provided text it **simplifies** it rather than fully using the AM model.
+
+AGENT TRACE: [
+  {
+    "step": 1,
+    "queries_run": [
+      "What interpretability techniques does Gupta et al.'s 2024 Genome Biology paper use for RNA splicing, and does the 2025 ICLR paper by the same author (Gupta) build on this approach?"
+    ],
+    "collected": [
+      "Gupta2024#chunk0",
+      "Gupta2024#chunk1",
+      "Gupta2024#chunk2"
+    ],
+    "done": false,
+    "new_queries": [
+      "Gupta 2024 Genome Biology interpretability techniques splicing motif aggregator sparsity saliency attribution",
+      "Gupta 2025 ICLR paper same author RNA splicing interpretable neural model building on adjusted motif architecture"
+    ],
+    "reasoning": "The 2024 paper already indicates an interpretable modular splicing architecture with separate Motif and Aggregator components and sparsity for interpretability, but we still need the specific interpretability techniques used (e.g., any attribution, motif visualization, sparsity/feature selection details) and confirmation about the 2025 ICLR Gupta paper. A targeted search for the 2025 paper title/abstract is needed to see whether it explicitly builds on the 2024 approach."
+  },
+  {
+    "step": 2,
+    "queries_run": [
+      "Gupta 2024 Genome Biology interpretability techniques splicing motif aggregator sparsity saliency attribution",
+      "Gupta 2025 ICLR paper same author RNA splicing interpretable neural model building on adjusted motif architecture"
+    ],
+    "collected": [
+      "Gupta2024#chunk0",
+      "Gupta2024#chunk1",
+      "Gupta2024#chunk17",
+      "Gupta2024#chunk2",
+      "Gupta2024#chunk6",
+      "Gupta2024#chunk7",
+      "conf_iclr_gupta2025sparling#chunk37"
+    ],
+    "done": true,
+    "new_queries": [],
+    "reasoning": "The 2024 Genome Biology paper uses an explicitly interpretable modular architecture for RNA splicing: a Local Splice Site Identifier (LSSI) for core splice-site motifs, a Motif Model built from known RNA-binding protein (RBP) motif models, and an Aggregator. Its key interpretability techniques are enforcing sparsity, anchoring intermediate predictions to biologically known motif/RBP binding models, and the Adjusted Motif (AM) variant that fine-tunes motif parameters end-to-end while preserving motif interpretability. The 2025 ICLR paper by Gupta does build on this approach: the related-work note says it studies the Sparse Adjusted Motif idea from Gupta et al. (2024), but simplifies it by focusing on the sparse layer itself rather than the full Adjusted Motif model."
+  }
+]
+------------------------------------------------------------------------
+[2026-10-25T21:53:02] TASK 1 (three-way comparison)
+Q: Compare how Ellis et al.'s EC2 (NeurIPS 2018) and Bowers et al.'s Stitch approach library learning, naming both algorithms.
+
+FIXED (1 calls): The documents only clearly describe **Stitch** and its comparison to **DreamCoder**; they do **not** provide enough information about **Ellis et al.’s EC2 (NeurIPS 2018)** to compare the two approaches in detail.
+
+What the documents do say about Stitch is that it is a **deductive refactoring / library learning** method that learns abstractions by rewriting programs, and that in the library-learning experiments it is compared against **DreamCoder**:
+
+- “**Stitch is related to two core ideas from prior work: deductive refactoring and library learning systems**”
+- “**DreamCoder learns libraries iteratively: the system is initialized with a low-level DSL, and then alternates between synthesizing programs ... and updating the library of abstractions available to the synthesizer**”
+
+So, based only on these documents:
+- **Bowers et al.’s Stitch**: learns libraries via **deductive rewriting/refactoring**.
+- **Ellis et al.’s EC2 (NeurIPS 2018)**: the documents do not explain EC2’s library-learning procedure, so I can’t reliably compare it here.
+
+If you want, I can still give a comparison **using only the names/roles mentioned in the documents**, but not a substantive algorithmic comparison.
+
+INITIAL AGENT (2 calls, docs=['DBLP_journals_pacmpl_BowersOWGTES23#chunk54', 'DBLP_journals_pacmpl_BowersOWGTES23#chunk59', 'DBLP_journals_pacmpl_BowersOWGTES23#chunk74']): From the provided documents, **Stitch** is compared against **DreamCoder**, not EC2, in the library-learning experiments.
+
+The documents say DreamCoder learns libraries by **“alternates between synthesizing programs … and updating the library of abstractions available to the synthesizer”** and that Stitch is evaluated against DreamCoder’s learned libraries. They also note that Stitch’s approach is **deductive** and is able to learn libraries whose quality is **“comparable to and often better than those found by DreamCoder.”**
+
+However, the documents provided do **not** contain enough information to describe **Ellis et al.’s EC2 (NeurIPS 2018)** specifically, or to directly compare EC2 with Stitch by name.
+INITIAL TRACE: [
+  {
+    "step": 1,
+    "queries_run": [
+      "Compare how Ellis et al.'s EC2 (NeurIPS 2018) and Bowers et al.'s Stitch approach library learning, naming both algorithms."
+    ],
+    "collected": [
+      "DBLP_journals_pacmpl_BowersOWGTES23#chunk54",
+      "DBLP_journals_pacmpl_BowersOWGTES23#chunk59",
+      "DBLP_journals_pacmpl_BowersOWGTES23#chunk74"
+    ],
+    "done": true,
+    "new_queries": [],
+    "reasoning": "We have enough to answer: Bowers et al. describe Stitch as a deductive library-learning/refactoring approach, while Ellis et al. EC2/DreamCoder is a neurally guided iterative library-learning system. The documents state that Stitch learns libraries by running CTS/rewriting over programs and selecting abstractions by compression/utility, whereas DreamCoder learns libraries iteratively by alternating synthesis of task-solving programs and updating the abstraction library. The question asks to compare how they approach library learning and name both algorithms, which are clearly identifiable here."
+  }
+]
+
+REFINED AGENT (4 calls, docs=['DBLP_journals_corr_abs-2206-06164#chunk4', 'DBLP_journals_pacmpl_BowersOWGTES23#chunk15', 'DBLP_journals_pacmpl_BowersOWGTES23#chunk37', 'DBLP_journals_pacmpl_BowersOWGTES23#chunk4', 'DBLP_journals_pacmpl_BowersOWGTES23#chunk5', 'DBLP_journals_pacmpl_BowersOWGTES23#chunk50', 'DBLP_journals_pacmpl_BowersOWGTES23#chunk52', 'DBLP_journals_pacmpl_BowersOWGTES23#chunk54', 'DBLP_journals_pacmpl_BowersOWGTES23#chunk59', 'DBLP_journals_pacmpl_BowersOWGTES23#chunk6', 'DBLP_journals_pacmpl_BowersOWGTES23#chunk74', 'DBLP_journals_pacmpl_BowersOWGTES23#chunk75', 'DBLP_journals_pacmpl_BowersOWGTES23#chunk76', 'DBLP_journals_pacmpl_BowersOWGTES23#chunk83']): Ellis et al.’s **EC2** and Bowers et al.’s **Stitch** both aim at library learning, but they do it in different ways:
+
+- **EC2 (Ellis et al., NeurIPS 2018)** uses a **deductive, bottom-up approach**. The paper describes prior work as “**a dynamic bottom-up approach to refactoring with version spaces**” and says these deductive methods “**use semantics-preserving rewrite rules to attempt to refactor existing programs to expose shared structure**.” It also notes that Ellis et al. 2021 (building on this line of work) use “**version spaces**” to search more efficiently over refactored programs.  
+  - In short: EC2-style library learning is **rewrite/refactor first, then extract abstractions**.
+
+- **Stitch (Bowers et al.)** uses **corpus-guided top-down synthesis (CTS)**. The paper says: “**Instead of taking a deductive approach based on refactoring the corpus with rewrite rules, we directly synthesize abstractions**,” and that Stitch “**uses a corpus-guided top-down approach to learning library abstractions**.” It searches directly for abstractions by guiding top-down synthesis with a utility function.  
+  - In short: Stitch is **top-down, directly synthesizing abstractions from the corpus**.
+
+So, compared directly:
+
+- **EC2:** bottom-up, deductive, rewrite-based library learning.
+- **Stitch:** top-down, synthesis-based library learning guided by corpus compression.
+
+The paper also contrasts them by saying deductive methods face “**memory and search-time scaling challenges**,” while Stitch “**significantly faster**” and uses much less memory.
+REFINED TRACE: [
+  {
+    "step": 1,
+    "queries_run": [
+      "Compare how Ellis et al.'s EC2 (NeurIPS 2018) and Bowers et al.'s Stitch approach library learning, naming both algorithms."
+    ],
+    "collected": [
+      "DBLP_journals_pacmpl_BowersOWGTES23#chunk50",
+      "DBLP_journals_pacmpl_BowersOWGTES23#chunk54",
+      "DBLP_journals_pacmpl_BowersOWGTES23#chunk59",
+      "DBLP_journals_pacmpl_BowersOWGTES23#chunk6",
+      "DBLP_journals_pacmpl_BowersOWGTES23#chunk74",
+      "DBLP_journals_pacmpl_BowersOWGTES23#chunk76"
+    ],
+    "done": false,
+    "new_queries": [
+      "Ellis et al. 2018 EC2 NeurIPS library learning algorithm name and how it learns abstractions/compression",
+      "Bowers et al. Stitch library learning algorithm name and how it learns abstractions/compression in comparison to Ellis et al. 2018 EC2"
+    ],
+    "reasoning": "The shown text explicitly covers Stitch and DreamCoder/Ellis et al. 2021, including that Stitch is a corpus-guided top-down library learning tool and that Ellis et al. used a deductive approach with version spaces. However, the question specifically asks to compare Ellis et al.'s EC2 (NeurIPS 2018) and Bowers et al.'s Stitch, naming both algorithms. The documents do not explicitly identify EC2 by name nor describe its library-learning mechanism in the EC2 paper itself, so that part is still missing. I also need an explicit named algorithm for Ellis et al. 2018 EC2 before answering fully."
+  },
+  {
+    "step": 2,
+    "queries_run": [
+      "Ellis et al. 2018 EC2 NeurIPS library learning algorithm name and how it learns abstractions/compression",
+      "Bowers et al. Stitch library learning algorithm name and how it learns abstractions/compression in comparison to Ellis et al. 2018 EC2"
+    ],
+    "collected": [
+      "DBLP_journals_pacmpl_BowersOWGTES23#chunk15",
+      "DBLP_journals_pacmpl_BowersOWGTES23#chunk37",
+      "DBLP_journals_pacmpl_BowersOWGTES23#chunk50",
+      "DBLP_journals_pacmpl_BowersOWGTES23#chunk54",
+      "DBLP_journals_pacmpl_BowersOWGTES23#chunk59",
+      "DBLP_journals_pacmpl_BowersOWGTES23#chunk6",
+      "DBLP_journals_pacmpl_BowersOWGTES23#chunk74",
+      "DBLP_journals_pacmpl_BowersOWGTES23#chunk75",
+      "DBLP_journals_pacmpl_BowersOWGTES23#chunk76",
+      "DBLP_journals_pacmpl_BowersOWGTES23#chunk83"
+    ],
+    "done": false,
+    "new_queries": [
+      "Ellis et al. 2018 EC2 NeurIPS algorithm name and whether it is bottom-up, antiunification, or version-space based library learning",
+      "Bowers et al. Stitch Section 7.1 exact description of Stitch's library learning approach and how it contrasts with Ellis et al. 2018 EC2"
+    ],
+    "reasoning": "The shown text covers Stitch as a corpus-guided top-down approach and says prior Ellis et al. approaches are bottom-up/deductive and use version spaces, but it does not explicitly identify Ellis et al. 2018 EC2\u2019s algorithm name or give the exact named comparison requested for that specific paper. We need explicit coverage of both named algorithms before answering fully."
+  },
+  {
+    "step": 3,
+    "queries_run": [
+      "Ellis et al. 2018 EC2 NeurIPS algorithm name and whether it is bottom-up, antiunification, or version-space based library learning",
+      "Bowers et al. Stitch Section 7.1 exact description of Stitch's library learning approach and how it contrasts with Ellis et al. 2018 EC2"
+    ],
+    "collected": [
+      "DBLP_journals_corr_abs-2206-06164#chunk4",
+      "DBLP_journals_pacmpl_BowersOWGTES23#chunk15",
+      "DBLP_journals_pacmpl_BowersOWGTES23#chunk37",
+      "DBLP_journals_pacmpl_BowersOWGTES23#chunk4",
+      "DBLP_journals_pacmpl_BowersOWGTES23#chunk5",
+      "DBLP_journals_pacmpl_BowersOWGTES23#chunk50",
+      "DBLP_journals_pacmpl_BowersOWGTES23#chunk52",
+      "DBLP_journals_pacmpl_BowersOWGTES23#chunk54",
+      "DBLP_journals_pacmpl_BowersOWGTES23#chunk59",
+      "DBLP_journals_pacmpl_BowersOWGTES23#chunk6",
+      "DBLP_journals_pacmpl_BowersOWGTES23#chunk74",
+      "DBLP_journals_pacmpl_BowersOWGTES23#chunk75",
+      "DBLP_journals_pacmpl_BowersOWGTES23#chunk76",
+      "DBLP_journals_pacmpl_BowersOWGTES23#chunk83"
+    ],
+    "done": false,
+    "new_queries": [
+      "Ellis et al. 2018 EC2 algorithm name and exact description of its library learning approach, including whether it is antiunification, bottom-up, or version-space based",
+      "Bowers et al. Stitch exact algorithm name and Section 7.1 description of how it learns libraries, especially the contrast with Ellis et al. 2018 EC2"
+    ],
+    "reasoning": "The shown text covers Stitch\u2019s approach and mentions Ellis et al. 2018 in the context of bottom-up abstraction learning and antiunification, but it does not explicitly name Ellis et al. 2018\u2019s algorithm EC2 or state its exact library-learning mechanism in a way sufficient to compare it directly. To answer the question, both named algorithms need explicit coverage: EC2 from Ellis et al. 2018 and Stitch from Bowers et al. 2023. Stitch is partly covered, but the exact requested comparison to Ellis et al. 2018 EC2 still needs a source that explicitly identifies EC2 and describes its library-learning approach."
+  }
+]
+------------------------------------------------------------------------
+[2026-10-25T21:53:20] TASK 2 (three-way comparison)
+Q: What problem does the ENCOMPASS paper's 'probabilistic angelic nondeterminism (PAN)' address, and how does that compare to DreamCoder's approach to library learning?
+
+FIXED (1 calls): ENCOMPASS’s **probabilistic angelic nondeterminism (PAN)** addresses the problem of **searching over the tree of possible execution paths of a probabilistic program**—especially when some operations are unreliable or random, such as LLM calls—so the runtime can **find a path that optimizes a user-specified objective**. The paper says PAN “lets the programmer write their program pretending the unreliable operations always produce good outputs, and the runtime searches the space of possible execution paths for one where the operations indeed produced good outputs.”
+
+Compared with that, **DreamCoder’s approach to library learning** is different: it is based on **constructing a version space** and uses a **probabilistic Bayesian objective** to choose candidate abstractions, “seeking the library \(L\) which maximizes \(P(L)\prod_{p\in P}P(p\mid L)\).” The document also notes that DreamCoder’s coverage “comes at a steep cost as inverting \(\beta\)-reduction is expensive.”
+
+So, in short:
+- **PAN/ENCOMPASS:** runtime search over nondeterministic execution paths to optimize an objective.
+- **DreamCoder:** probabilistic library learning via version spaces and Bayesian scoring, but with expensive \(\beta\)-inversion.
+
+INITIAL AGENT (2 calls, docs=['DBLP_journals_pacmpl_BowersOWGTES23#chunk71', 'conf_nips_li2025encompass#chunk4', 'conf_nips_li2025encompass#chunk5']): According to the ENCOMPASS paper, **probabilistic angelic nondeterminism (PAN)** addresses the problem of **searching over the tree of possible execution paths of a probabilistic program**—especially when some operations, like LLM calls, are random—so as to **find the path that optimizes a user-specified objective**. The paper says: “the core idea of PAN is to search over the tree of possible execution paths of a probabilistic program … to find the path that optimizes a user-specified objective” and that it lets the programmer “pretend[] the unreliable operations always produce good outputs,” while runtime searches for a path where they do.
+
+Compared with that, **DreamCoder’s approach to library learning** is different: it uses a **probabilistic Bayesian objective** to choose candidate abstractions, “seeking the library \(L\) which maximizes \(P(L)\prod_{p \in P} P(p \mid L)\)” given a prior and program likelihood. So, PAN is a **general execution-path search model**, whereas DreamCoder is specifically a **probabilistic objective for learning libraries/abstractions**.
+INITIAL TRACE: [
+  {
+    "step": 1,
+    "queries_run": [
+      "What problem does the ENCOMPASS paper's 'probabilistic angelic nondeterminism (PAN)' address, and how does that compare to DreamCoder's approach to library learning?"
+    ],
+    "collected": [
+      "DBLP_journals_pacmpl_BowersOWGTES23#chunk71",
+      "conf_nips_li2025encompass#chunk4",
+      "conf_nips_li2025encompass#chunk5"
+    ],
+    "done": true,
+    "new_queries": [],
+    "reasoning": "We have enough to answer from the documents. PAN in ENCOMPASS addresses the problem of executing probabilistic programs with unreliable/random operations (e.g., LLM calls) by searching over execution paths to find one that satisfies an objective, separating the program\u2019s logic from the inference-time search policy. DreamCoder\u2019s library learning is different: it learns a reusable library of abstractions/primitives from programs using a Bayesian objective that maximizes posterior probability/compression, rather than searching execution paths of a fixed program. The documents also note DreamCoder\u2019s \u03b2-inversion-based coverage can be expensive, emphasizing the contrast with PAN\u2019s inference-time search framing."
+  }
+]
+
+REFINED AGENT (4 calls, docs=['DBLP_journals_corr_abs-2006-08381#chunk1', 'DBLP_journals_corr_abs-2006-08381#chunk2', 'DBLP_journals_corr_abs-2006-08381#chunk38', 'DBLP_journals_corr_abs-2006-08381#chunk7', 'DBLP_journals_corr_abs-2006-08381#chunk8', 'DBLP_journals_corr_abs-2006-08381#chunk9', 'DBLP_journals_pacmpl_BowersOWGTES23#chunk71', 'DBLP_journals_pacmpl_BowersOWGTES23#chunk88', 'conf_nips_li2025encompass#chunk0', 'conf_nips_li2025encompass#chunk1', 'conf_nips_li2025encompass#chunk10', 'conf_nips_li2025encompass#chunk2', 'conf_nips_li2025encompass#chunk28', 'conf_nips_li2025encompass#chunk3', 'conf_nips_li2025encompass#chunk4', 'conf_nips_li2025encompass#chunk5', 'conf_nips_li2025encompass#chunk65']): The ENCOMPASS paper says PAN addresses the problem that, in current agent programming, the **core workflow logic** and the **inference-time strategy** are entangled. It introduces PAN to “**disentangle these two concerns**,” so the programmer can describe the agent workflow separately and then “**experiment with different inference-time strategies**” by changing inputs or search algorithms. It also frames this as searching over “**the tree of possible execution paths**” of a probabilistic program, where the runtime searches for a path that “**optimizes a user-specified objective**.”
+
+By contrast, DreamCoder is about **library learning for program induction**. Its goal is to learn reusable abstractions across tasks: it “**grows generalizable, interpretable knowledge**” through a wake-sleep process, where the learned language is expanded by “**consolidating new abstractions from programs found during waking**.” So DreamCoder focuses on discovering and extending a program library, whereas ENCOMPASS/PAN focuses on separating agent workflow specification from search over execution paths.
+
+In short:
+- **PAN / ENCOMPASS:** separates agent logic from search strategy and searches execution paths.
+- **DreamCoder:** learns reusable libraries/abstractions to improve program synthesis across tasks.
+REFINED TRACE: [
+  {
+    "step": 1,
+    "queries_run": [
+      "What problem does the ENCOMPASS paper's 'probabilistic angelic nondeterminism (PAN)' address, and how does that compare to DreamCoder's approach to library learning?"
+    ],
+    "collected": [
+      "DBLP_journals_corr_abs-2006-08381#chunk1",
+      "DBLP_journals_pacmpl_BowersOWGTES23#chunk71",
+      "conf_nips_li2025encompass#chunk0",
+      "conf_nips_li2025encompass#chunk3",
+      "conf_nips_li2025encompass#chunk4",
+      "conf_nips_li2025encompass#chunk5"
+    ],
+    "done": false,
+    "new_queries": [
+      "In the DreamCoder paper, what is the wake-sleep Bayesian program induction approach, and specifically how does the library learning process work?",
+      "In the ENCOMPASS paper, what specific problem or limitation of agent programming/inference-time strategies is PAN designed to address?"
+    ],
+    "reasoning": "The ENCOMPASS documents explicitly say PAN addresses separating core workflow logic from inference-time search over unreliable operations, but the question also asks for a comparison to DreamCoder\u2019s library learning approach. The DreamCoder text shown only gives a high-level intro and mentions library learning in general; it does not yet explicitly describe how DreamCoder learns libraries or how that compares to PAN. Need one more DreamCoder-specific source and a more explicit ENCOMPASS source about the problem PAN solves."
+  },
+  {
+    "step": 2,
+    "queries_run": [
+      "In the DreamCoder paper, what is the wake-sleep Bayesian program induction approach, and specifically how does the library learning process work?",
+      "In the ENCOMPASS paper, what specific problem or limitation of agent programming/inference-time strategies is PAN designed to address?"
+    ],
+    "collected": [
+      "DBLP_journals_corr_abs-2006-08381#chunk1",
+      "DBLP_journals_corr_abs-2006-08381#chunk2",
+      "DBLP_journals_corr_abs-2006-08381#chunk38",
+      "DBLP_journals_corr_abs-2006-08381#chunk7",
+      "DBLP_journals_corr_abs-2006-08381#chunk8",
+      "DBLP_journals_pacmpl_BowersOWGTES23#chunk71",
+      "DBLP_journals_pacmpl_BowersOWGTES23#chunk88",
+      "conf_nips_li2025encompass#chunk0",
+      "conf_nips_li2025encompass#chunk1",
+      "conf_nips_li2025encompass#chunk10",
+      "conf_nips_li2025encompass#chunk2",
+      "conf_nips_li2025encompass#chunk3",
+      "conf_nips_li2025encompass#chunk4",
+      "conf_nips_li2025encompass#chunk5"
+    ],
+    "done": false,
+    "new_queries": [
+      "In the ENCOMPASS paper, what exact limitation or bottleneck of agent programming is probabilistic angelic nondeterminism (PAN) meant to solve, stated in the paper's own words?",
+      "In the DreamCoder paper, how is library learning described specifically, and what role does it play in the wake-sleep Bayesian program induction approach?"
+    ],
+    "reasoning": "The ENCOMPASS documents explicitly say PAN separates inference-time algorithms from workflow logic and searches execution paths for good outputs, but the question also asks what problem it addresses; I need the paper\u2019s own explicit statement of the limitation/bottleneck. For DreamCoder, the documents explain wake-sleep Bayesian program induction and mention library learning, but I still need a precise description of how library learning works in that approach. Both parts are only partially covered, so done=false."
+  },
+  {
+    "step": 3,
+    "queries_run": [
+      "In the ENCOMPASS paper, what exact limitation or bottleneck of agent programming is probabilistic angelic nondeterminism (PAN) meant to solve, stated in the paper's own words?",
+      "In the DreamCoder paper, how is library learning described specifically, and what role does it play in the wake-sleep Bayesian program induction approach?"
+    ],
+    "collected": [
+      "DBLP_journals_corr_abs-2006-08381#chunk1",
+      "DBLP_journals_corr_abs-2006-08381#chunk2",
+      "DBLP_journals_corr_abs-2006-08381#chunk38",
+      "DBLP_journals_corr_abs-2006-08381#chunk7",
+      "DBLP_journals_corr_abs-2006-08381#chunk8",
+      "DBLP_journals_corr_abs-2006-08381#chunk9",
+      "DBLP_journals_pacmpl_BowersOWGTES23#chunk71",
+      "DBLP_journals_pacmpl_BowersOWGTES23#chunk88",
+      "conf_nips_li2025encompass#chunk0",
+      "conf_nips_li2025encompass#chunk1",
+      "conf_nips_li2025encompass#chunk10",
+      "conf_nips_li2025encompass#chunk2",
+      "conf_nips_li2025encompass#chunk28",
+      "conf_nips_li2025encompass#chunk3",
+      "conf_nips_li2025encompass#chunk4",
+      "conf_nips_li2025encompass#chunk5",
+      "conf_nips_li2025encompass#chunk65"
+    ],
+    "done": true,
+    "new_queries": [],
+    "reasoning": "The shown text explicitly answers both parts. For ENCOMPASS, PAN is described as addressing the entanglement of inference-time scaling/search strategy with core agent workflow logic: it lets the programmer write the workflow as if unreliable operations always succeed, while runtime searches execution paths to find one where they do. For DreamCoder, the text explicitly says library learning is part of wake-sleep Bayesian program induction: the system learns a reusable program library/learned language iteratively by alternating wake phases that synthesize programs for tasks with sleep phases that consolidate new abstractions into the library, training a recognition model on fantasy programs. Both the problem and the comparison are covered in the provided documents."
+  }
+]
+------------------------------------------------------------------------
+[2026-10-25T21:53:44] TASK 3 (three-way comparison)
+Q: What interpretability techniques does Gupta et al.'s 2024 Genome Biology paper use for RNA splicing, and does the 2025 ICLR paper by the same author (Gupta) build on this approach?
+
+FIXED (1 calls): From the provided 2024 Genome Biology paper, the interpretability comes from a **modular splicing architecture** that separates **binding** and **activity** into distinct components:
+
+- “**Binding and activity are modeled by separate Motif and Aggregator components that can be mixed and matched, enforcing sparsity to improve interpretability.**”
+- The paper also says it uses “**in vitro-derived RNA affinity models for 79 human RBPs**” together with the annotated human genome.
+
+So the main interpretability techniques explicitly mentioned here are:
+1. **Separate Motif and Aggregator modules**
+2. **Mix-and-match modularity**
+3. **Sparsity enforcement** to make the model more interpretable
+
+As for the **2025 ICLR paper by the same author (Gupta)**: the provided documents do **not** contain any information about that paper, so I can’t confirm whether it builds on this approach.
+
+INITIAL AGENT (3 calls, docs=['Gupta2024#chunk0', 'Gupta2024#chunk1', 'Gupta2024#chunk17', 'Gupta2024#chunk2', 'Gupta2024#chunk6']): From the provided Gupta et al. 2024 Genome Biology paper, the interpretability strategy is a **modular, biologically anchored splicing model** with **enforced sparsity**.
+
+Key techniques described:
+
+- **Separate submodels for known biology**:  
+  The paper says the model uses sub-components “directly anchored to known biology,” including:
+  - a **Local Splice Site Identifier (LSSI)** for “the 3′SS and 5′SS motifs”
+  - a **Fixed Motif (FM) model** for RBP binding sites using “existing biophysically based models derived from in vitro RBP:RNA binding data”
+  - an **Aggregator** that combines those outputs to predict splicing outcomes
+
+- **Interpretability via intermediate, meaningful quantities**:  
+  The paper states: “This two-step process ensures that we predict splicing from a known intermediate value, rather than from uninterpretable latent features learned directly from the RNA sequence.”
+
+- **Sparsity to improve interpretability**:  
+  The abstract says the Motif and Aggregator components are “mixed and matched, **enforcing sparsity to improve interpretability**.”
+
+- **Motif anchoring to specific RBPs**:  
+  The model keeps motifs tied to specific RBPs, allowing it to “infer the involvement of specific motifs and associated RBPs in splicing and to interpret variants that alter RBP binding.”
+
+- **Adjusted Motif (AM) refinement while preserving interpretability**:  
+  They also introduce an **Adjusted Motif (AM)** model that “tunes these motifs as part of end-to-end training” while preserving the association with individual RBPs.
+
+On whether the **2025 ICLR paper by the same author (Gupta)** builds on this approach: **the provided documents do not contain any 2025 ICLR paper**, so I can’t verify that from the supplied text.
+INITIAL TRACE: [
+  {
+    "step": 1,
+    "queries_run": [
+      "What interpretability techniques does Gupta et al.'s 2024 Genome Biology paper use for RNA splicing, and does the 2025 ICLR paper by the same author (Gupta) build on this approach?"
+    ],
+    "collected": [
+      "Gupta2024#chunk0",
+      "Gupta2024#chunk1",
+      "Gupta2024#chunk2"
+    ],
+    "done": false,
+    "new_queries": [
+      "Gupta 2025 ICLR splicing interpretability motif aggregator adjusted motif same author Gupta 2025 ICLR"
+    ],
+    "reasoning": "The 2024 Genome Biology paper clearly uses an interpretable modular splicing architecture with separate Motif and Aggregator components, sparsity constraints, and an Adjusted Motif (AM) model trained for splicing; but I do not yet have the 2025 ICLR paper to determine whether it builds on this approach. I need the title/abstract of the 2025 ICLR paper or any mention of RNA splicing, Gupta, or the AM/motif-aggregator framework."
+  },
+  {
+    "step": 2,
+    "queries_run": [
+      "Gupta 2025 ICLR splicing interpretability motif aggregator adjusted motif same author Gupta 2025 ICLR"
+    ],
+    "collected": [
+      "Gupta2024#chunk0",
+      "Gupta2024#chunk1",
+      "Gupta2024#chunk17",
+      "Gupta2024#chunk2",
+      "Gupta2024#chunk6"
+    ],
+    "done": true,
+    "new_queries": [],
+    "reasoning": "The 2024 Genome Biology paper uses an interpretable modular splicing architecture with enforced sparsity: a Local Splice Site Identifier (LSSI) for 5\u2032/3\u2032 splice-site motifs, a Fixed Motif (FM) model for known RBP binding motifs, an Aggregator to combine them, and an Adjusted Motif (AM) variant that fine-tunes motif parameters during end-to-end splicing training while preserving correspondence to specific RBPs. This is explicitly presented as an interpretability-focused approach because predictions go through biologically meaningful intermediate motifs rather than latent features. I do not yet have any document about the 2025 ICLR paper by Gupta, so I cannot confirm whether it builds on this exact approach from the current evidence."
+  }
+]
+
+REFINED AGENT (4 calls, docs=['DBLP_conf_icml_CanoPDRS25#chunk34', 'Gupta2024#chunk0', 'Gupta2024#chunk1', 'Gupta2024#chunk11', 'Gupta2024#chunk19', 'Gupta2024#chunk2', 'Gupta2024#chunk22', 'Gupta2024#chunk23', 'Gupta2024#chunk30', 'Gupta2024#chunk35', 'Gupta2024#chunk36', 'Gupta2024#chunk37', 'Gupta2024#chunk38', 'Gupta2024#chunk39', 'Gupta2024#chunk4', 'Gupta2024#chunk40', 'Gupta2024#chunk44']): From the Gupta et al. 2024 Genome Biology paper, the splicing model is explicitly designed to be interpretable and modular. The paper says it uses:
+
+- **Separate “Motif” and “Aggregator” components**: “Binding and activity are modeled by separate Motif and Aggregator components that can be mixed and matched, enforcing sparsity to improve interpretability.”
+- **An information bottleneck / sparsity constraint**: “we use a recently described approach” to enforce modularity, and the motif layer is constrained so only a small fraction of genomic positions get meaningful scores.
+- **Adjustable motif filtering**: the AM model “adjust[s] the scores for already relatively high-scoring FM binding sites,” so the model keeps known motif structure but can refine which sites are active.
+- **In silico motif deletion / knockout**: they “conducted a series of computational experiments” using “in silico motif deletion” and “in silico knockouts” to measure each motif’s regulatory impact.
+- **Regulatory landscape visualization**: they generate a “putative regulatory landscape” for exons, showing predicted splice sites and motif effects.
+- **RNA map inference**: they infer motif-specific positional effects, including “RNA maps for selected RBPs.”
+
+So the interpretability techniques are mainly modular motif-based modeling plus in silico knockout/deletion analyses and motif-effect maps.
+
+On the second part: **the provided documents do not contain enough information about the 2025 ICLR paper to say whether it builds on this approach.** I can only confirm that the 2024 paper itself was later cited in the DBLP reference list for an ICLR-related paper, but the documents here do not describe the 2025 ICLR paper’s method or whether it extends Gupta et al.’s splicing approach.
+REFINED TRACE: [
+  {
+    "step": 1,
+    "queries_run": [
+      "What interpretability techniques does Gupta et al.'s 2024 Genome Biology paper use for RNA splicing, and does the 2025 ICLR paper by the same author (Gupta) build on this approach?"
+    ],
+    "collected": [
+      "Gupta2024#chunk0",
+      "Gupta2024#chunk1",
+      "Gupta2024#chunk2",
+      "Gupta2024#chunk35",
+      "Gupta2024#chunk39",
+      "Gupta2024#chunk4"
+    ],
+    "done": false,
+    "new_queries": [
+      "Find the 2025 ICLR paper by Gupta and check whether it explicitly cites or builds on the 2024 Genome Biology RNA splicing/interpretable neural model work.",
+      "Search within the 2024 Genome Biology paper for the specific interpretability methods used (e.g., in silico mutagenesis, motif/feature attribution, or other named techniques) and whether any later paper reuses the same approach."
+    ],
+    "reasoning": "The 2024 Genome Biology paper clearly mentions an interpretable modular splicing architecture with Motif and Aggregator components and sparsity for interpretability, but the shown text does not explicitly enumerate all interpretability techniques yet. The second part of the question asks about a separate 2025 ICLR paper by Gupta, and no document for that paper is shown, so that part is still missing."
+  },
+  {
+    "step": 2,
+    "queries_run": [
+      "Find the 2025 ICLR paper by Gupta and check whether it explicitly cites or builds on the 2024 Genome Biology RNA splicing/interpretable neural model work.",
+      "Search within the 2024 Genome Biology paper for the specific interpretability methods used (e.g., in silico mutagenesis, motif/feature attribution, or other named techniques) and whether any later paper reuses the same approach."
+    ],
+    "collected": [
+      "DBLP_conf_icml_CanoPDRS25#chunk34",
+      "Gupta2024#chunk0",
+      "Gupta2024#chunk1",
+      "Gupta2024#chunk2",
+      "Gupta2024#chunk22",
+      "Gupta2024#chunk23",
+      "Gupta2024#chunk35",
+      "Gupta2024#chunk37",
+      "Gupta2024#chunk38",
+      "Gupta2024#chunk39",
+      "Gupta2024#chunk4",
+      "Gupta2024#chunk44"
+    ],
+    "done": false,
+    "new_queries": [
+      "Search for the 2025 ICLR Gupta paper title/abstract and any explicit citation of the 2024 Genome Biology splicing paper, especially phrases like 'builds on', 'extends', 'motivated by', or shared model names such as SAM/AM/FM.",
+      "In the 2024 Genome Biology paper, locate the exact named interpretability methods and results section describing them (e.g., in silico motif deletion, in silico mutagenesis, module substitution, knockdown/RNA maps) and whether they are presented as the core interpretability techniques for RNA splicing."
+    ],
+    "reasoning": "The 2024 Genome Biology paper text explicitly mentions several interpretability techniques: in silico mutagenesis on SpliceAI, in silico motif deletion, in silico knockouts, and in silico knockdowns to infer RNA maps. However, the 2025 ICLR paper by Gupta is not identified in the shown text, and there is no explicit evidence yet that it builds on the 2024 approach. We still need the later paper\u2019s text to verify any direct continuation or citation."
+  },
+  {
+    "step": 3,
+    "queries_run": [
+      "Search for the 2025 ICLR Gupta paper title/abstract and any explicit citation of the 2024 Genome Biology splicing paper, especially phrases like 'builds on', 'extends', 'motivated by', or shared model names such as SAM/AM/FM.",
+      "In the 2024 Genome Biology paper, locate the exact named interpretability methods and results section describing them (e.g., in silico motif deletion, in silico mutagenesis, module substitution, knockdown/RNA maps) and whether they are presented as the core interpretability techniques for RNA splicing."
+    ],
+    "collected": [
+      "DBLP_conf_icml_CanoPDRS25#chunk34",
+      "Gupta2024#chunk0",
+      "Gupta2024#chunk1",
+      "Gupta2024#chunk11",
+      "Gupta2024#chunk19",
+      "Gupta2024#chunk2",
+      "Gupta2024#chunk22",
+      "Gupta2024#chunk23",
+      "Gupta2024#chunk30",
+      "Gupta2024#chunk35",
+      "Gupta2024#chunk36",
+      "Gupta2024#chunk37",
+      "Gupta2024#chunk38",
+      "Gupta2024#chunk39",
+      "Gupta2024#chunk4",
+      "Gupta2024#chunk40",
+      "Gupta2024#chunk44"
+    ],
+    "done": false,
+    "new_queries": [
+      "Search the 2025 ICLR Gupta paper title/abstract or proceedings page for explicit citation of the 2024 Genome Biology splicing paper, and whether it says it builds on, extends, or reuses the same interpretability approach.",
+      "Search within the 2024 Genome Biology paper for the exact named interpretability methods and any explicit summary sentence listing them (e.g., in silico motif deletion, in silico mutagenesis, module substitution, in silico knockout / RNA maps) to confirm which techniques are the core methods for RNA splicing."
+    ],
+    "reasoning": "The 2024 Genome Biology paper clearly mentions several interpretability techniques for RNA splicing: in silico mutagenesis on SpliceAI, in silico motif deletion, module substitution, and in silico knockouts / inferred RNA maps. However, the question also asks whether the 2025 ICLR paper by Gupta builds on this approach, and no 2025 ICLR document text is shown yet. So the first part is partially covered, but the second part is missing and must be checked explicitly. I also want a direct summary passage from the 2024 paper that names the interpretability techniques as core methods, since the current excerpts mention them in different places but do not provide a single explicit summary of the full set."
+  }
+]
+------------------------------------------------------------------------

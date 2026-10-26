@@ -36,6 +36,11 @@ Capstone Checkpoint 4.1/
     Required_Capstone_Checkpoint_4_1_Worksheet_completed.docx
     checkpoint_4_1_responses.log
     README.md
+Capstone Checkpoint 5.1/
+    capstone_checkpoint_5_1_agent_rag_starter.py
+    Required_Capstone_Checkpoint_5_1_Worksheet_completed.docx
+    checkpoint_5_1_agent.log
+    README.md
 ...
 Capstone Checkpoint 8.1/
     README.md   (placeholder until this module is completed)
@@ -72,7 +77,7 @@ and handling both single-paper and cross-paper questions.
 | [2.1](./Capstone%20Checkpoint%202.1) | Retrieval strategy design and baseline (BM25 keyword retrieval) | ✅ Complete |
 | [3.1](./Capstone%20Checkpoint%203.1) | Evaluation infrastructure and baseline diagnosis (LLM-judge) | ✅ Complete |
 | [4.1](./Capstone%20Checkpoint%204.1) | Advanced retrieval: citation/author graph over BM25 | ✅ Complete |
-| [5.1](./Capstone%20Checkpoint%205.1) | TBD | ⬜ Not started |
+| [5.1](./Capstone%20Checkpoint%205.1) | Agent-based RAG: retrieve-decide-answer loop vs. fixed pipeline | ✅ Complete |
 | [6.1](./Capstone%20Checkpoint%206.1) | TBD | ⬜ Not started |
 | [7.1](./Capstone%20Checkpoint%207.1) | TBD | ⬜ Not started |
 | [8.1](./Capstone%20Checkpoint%208.1) | TBD | ⬜ Not started |
