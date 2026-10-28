@@ -24,10 +24,11 @@ folders.
   per slide, with delivery cues), preserved from the deck's speaker notes
   before they were removed.
 
-**Kept local only (not in this repo):** the recorded presentation — the
-pptx with embedded narration (~400 MB) and the exported `.mov` video
-(~100 MB) — both exceed or approach GitHub's 100 MB per-file limit, so they
-are gitignored and submitted directly through the course platform instead.
+**The recorded presentation (10 min 18 s)** exceeds GitHub's 100 MB
+per-file limit, so it is attached to a GitHub Release rather than committed
+to the repository tree — download it (MP4 recommended, original MOV also
+available) from:
+**https://github.com/slakhwa/mit-rag-context-eng-capstone/releases/tag/presentation-v1**
 
 ## The "Working System Requirements" checklist
 
@@ -43,6 +44,6 @@ checkpoint's retrieval, evaluation, agent, security, and cost work).
 ## Submission
 
 Per the instructions, submit **both**:
-1. The recorded presentation video (kept local — see above).
+1. The recorded presentation video (see the Release link above).
 2. A link to this GitHub repository:
    https://github.com/slakhwa/mit-rag-context-eng-capstone

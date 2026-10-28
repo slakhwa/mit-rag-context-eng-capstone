@@ -141,7 +141,7 @@ and handling both single-paper and cross-paper questions.
 | [5.1](./Capstone%20Checkpoint%205.1) | Agent-based RAG: retrieve-decide-answer loop vs. fixed pipeline | ✅ Complete |
 | [6.1](./Capstone%20Checkpoint%206.1) | Security and performance audit: injection probes, token cost, model ladder | ✅ Complete |
 | [7.1](./Capstone%20Checkpoint%207.1) | Production hardening: sanitizer, caching, routing (mixed results) | ✅ Complete |
-| [8.1](./Capstone%20Checkpoint%208.1) | Final system + design review presentation | ✅ Complete (recording kept local — exceeds GitHub's file size limit) |
+| [8.1](./Capstone%20Checkpoint%208.1) | Final system + design review presentation | ✅ Complete ([recording in Releases](https://github.com/slakhwa/mit-rag-context-eng-capstone/releases/tag/presentation-v1)) |
 
 ## Setup (per checkpoint)
 
