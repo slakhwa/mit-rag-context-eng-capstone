@@ -114,6 +114,7 @@ Capstone Checkpoint 7.1/
     README.md
 Capstone Checkpoint 8.1/
     Capstone_Design_Review_Presentation_completed.pptx
+    recording_script.md
     README.md
 ```
 
@@ -140,7 +141,7 @@ and handling both single-paper and cross-paper questions.
 | [5.1](./Capstone%20Checkpoint%205.1) | Agent-based RAG: retrieve-decide-answer loop vs. fixed pipeline | ✅ Complete |
 | [6.1](./Capstone%20Checkpoint%206.1) | Security and performance audit: injection probes, token cost, model ladder | ✅ Complete |
 | [7.1](./Capstone%20Checkpoint%207.1) | Production hardening: sanitizer, caching, routing (mixed results) | ✅ Complete |
-| [8.1](./Capstone%20Checkpoint%208.1) | Final system + design review presentation | 🟡 Slides & script ready; recording pending |
+| [8.1](./Capstone%20Checkpoint%208.1) | Final system + design review presentation | ✅ Complete (recording kept local — exceeds GitHub's file size limit) |
 
 ## Setup (per checkpoint)
 

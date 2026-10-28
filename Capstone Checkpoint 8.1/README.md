@@ -1,7 +1,7 @@
 # Capstone Checkpoint 8.1 — Final System and Design Review Presentation
 
-**Status:** 🟡 Slide deck and full narration script complete; the actual
-screen/audio recording is a manual step only you can do — see below.
+**Status:** ✅ Complete — slide deck finalized, narration recorded, and the
+presentation exported to video for submission.
 
 ## What this checkpoint is
 
@@ -12,44 +12,30 @@ folders.
 
 ## Contents
 
-- **`Capstone_Design_Review_Presentation_completed.pptx`** — the filled-in
-  presentation, built from the course's own template
-  ("Capstone Design Review Presentation.pptx"), covering all 6 required
+- **`Capstone_Design_Review_Presentation_completed.pptx`** — the final
+  slide deck, built from the course's own template, covering all 6 required
   components: the problem, how the system works, how it was evaluated, key
   engineering decisions and why, the trade-offs that shaped the final
-  design, and its limitations/future opportunities. Every slide's bullet
-  content is drawn directly from real, already-verified evidence in
-  Checkpoints 1.1–7.1 — nothing on these slides is invented for the
-  presentation.
-- **Each slide's PowerPoint speaker notes** contain a complete narration
-  script (open the Notes pane in PowerPoint/Keynote/Google Slides to see
-  it) — written so you can read from it directly while recording, or adapt
-  it into your own words.
+  design, and its limitations/future opportunities. Every slide's content
+  is drawn directly from real, already-verified evidence in Checkpoints
+  1.1–7.1 — nothing on these slides is invented for the presentation.
+  Speaker notes were removed for submission.
+- **`recording_script.md`** — the full spoken narration script (one section
+  per slide, with delivery cues), preserved from the deck's speaker notes
+  before they were removed.
 
-## What you still need to do
-
-**I cannot record audio or video** — recording the actual presentation is
-a step only you can do. To record it:
-
-1. Open `Capstone_Design_Review_Presentation_completed.pptx`.
-2. Review each slide's speaker notes (View → Notes, or the Notes pane) —
-   adjust the wording to sound like you if you'd like, or read it as-is.
-3. Record using whichever tool you have available:
-   - **PowerPoint's built-in "Record Slide Show"** (Slide Show → Record
-     Slide Show) shows you the speaker notes on screen while recording and
-     exports directly to video.
-   - Or screen-record with QuickTime/Zoom/Loom while presenting and
-     narrating normally.
-4. Export/save the final recording and upload it per the assignment's
-   submission instructions.
+**Kept local only (not in this repo):** the recorded presentation — the
+pptx with embedded narration (~400 MB) and the exported `.mov` video
+(~100 MB) — both exceed or approach GitHub's 100 MB per-file limit, so they
+are gitignored and submitted directly through the course platform instead.
 
 ## The "Working System Requirements" checklist
 
 Per this checkpoint's instructions, the GitHub repository itself needs to
 be reviewable as a complete, working implementation, with a README
 covering purpose, install/configure/run, dependencies/env vars, and known
-limitations. I added a **"The Final System"** section to the top-level
-[`README.md`](../README.md) that covers exactly this, pointing to
+limitations. The **"The Final System"** section of the top-level
+[`README.md`](../README.md) covers exactly this, pointing to
 [Checkpoint 7.1](<../Capstone Checkpoint 7.1>) as the canonical,
 cumulative, most-hardened implementation (it incorporates every prior
 checkpoint's retrieval, evaluation, agent, security, and cost work).
@@ -57,6 +43,6 @@ checkpoint's retrieval, evaluation, agent, security, and cost work).
 ## Submission
 
 Per the instructions, submit **both**:
-1. The recorded presentation (you record this, using the deck + script above).
+1. The recorded presentation video (kept local — see above).
 2. A link to this GitHub repository:
    https://github.com/slakhwa/mit-rag-context-eng-capstone
